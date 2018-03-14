@@ -26,9 +26,24 @@ pop-theme-toggle dark
 pop-theme-toggle light
 ```
 
+### Switch to Slim Light Theme
+```shell
+pop-theme-toggle slim-light
+```
+
+### Switch to Slim Dark Theme
+```shell
+pop-theme-toggle slim-dark
+```
+
 ### Toggle Between Dark and Light
 ```shell
 pop-theme-toggle toggle
+```
+
+### Switch to Slim Theme
+```shell
+pop-theme-toggle slim
 ```
 
 ## License

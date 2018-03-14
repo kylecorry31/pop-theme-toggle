@@ -3,11 +3,15 @@ use std::io::Result;
 
 static POP_LIGHT: &'static str = "Pop";
 static POP_DARK: &'static str = "Pop-dark";
+static POP_SLIM_LIGHT: &'static str = "Pop-slim";
+static POP_SLIM_DARK: &'static str = "Pop-dark-slim";
 
 #[derive(PartialEq)]
 pub enum Theme {
 	Light,
-	Dark
+	Dark,
+	SlimLight,
+	SlimDark,
 }
 
 pub fn set_theme(theme_type: Theme) -> Result<()> {
@@ -19,7 +23,15 @@ pub fn set_theme(theme_type: Theme) -> Result<()> {
 		Theme::Dark => {
 			set_gtk_theme(POP_DARK)?;
 			set_user_theme(POP_DARK)?;
-		}
+		},
+		Theme::SlimLight => {
+			set_gtk_theme(POP_SLIM_LIGHT)?;
+			set_user_theme(POP_SLIM_LIGHT)?;
+		},
+		Theme::SlimDark => {
+			set_gtk_theme(POP_SLIM_DARK)?;
+			set_user_theme(POP_SLIM_DARK)?;
+		},
 	};
 	Ok(())
 }
@@ -31,8 +43,14 @@ pub fn get_theme() -> Theme {
 		Ok(a) => {
 			if a == POP_LIGHT { 
 				Theme::Light
-			} else {
+			} else if a == POP_DARK {
 				Theme::Dark
+			} else if a == POP_SLIM_LIGHT {
+				Theme::SlimLight
+			} else if a == POP_SLIM_DARK {
+				Theme::SlimDark
+			} else {
+				Theme::Light
 			}
 		},
 		Err(_) => Theme::Light,

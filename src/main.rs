@@ -8,17 +8,42 @@ mod dconf;
 use pop_theme::*;
 
 fn dark() -> Result<()> {
+	println!("Setting dark theme");
 	set_theme(Theme::Dark)
 }
 
 fn light() -> Result<()> {
+	println!("Setting light theme");
 	set_theme(Theme::Light)
+}
+
+fn slim_light() -> Result<()> {
+	println!("Setting slim light theme");
+	set_theme(Theme::SlimLight)
+}
+
+fn slim_dark() -> Result<()> {
+	println!("Setting slim dark theme");
+	set_theme(Theme::SlimDark)
+}
+
+fn toggle_to_slim() -> Result<()> {
+	match get_theme() {
+		Theme::Light => slim_light(),
+		Theme::Dark => slim_dark(),
+		_ => {
+			println!("Already in slim theme");
+			Ok(())
+		}
+	}
 }
 
 fn toggle() -> Result<()> {
 	match get_theme() {
 		Theme::Light => dark(),
 		Theme::Dark => light(),
+		Theme::SlimLight => slim_dark(),
+		Theme::SlimDark => slim_light(),
 	}
 }
 
@@ -29,18 +54,21 @@ fn main() {
 	if let Some(arg) = args.next() {
 		match arg.as_str() {
 			"light" => {
-				println!("Setting light theme");
 				light().unwrap();
 			},
 			"dark" => {
-				println!("Setting dark theme");
 				dark().unwrap();
 			},
+			"slim-dark" | "dark-slim" => {
+				slim_dark().unwrap();
+			},
+			"slim-light" | "light-slim" => {
+				slim_light().unwrap();
+			},
+			"slim" => {
+				toggle_to_slim().unwrap();
+			},
 			"toggle" => {
-				match get_theme(){
-					Theme::Light => println!("Setting dark theme"),
-					Theme::Dark => println!("Setting light theme"),
-				};
 				toggle().unwrap();
 			},
 			_ => {
