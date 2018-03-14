@@ -1,7 +1,11 @@
 # Pop Theme Toggle
 Pop Theme Toggle is a simple script which will toggle between dark and light themes for Pop!\_OS.
 
-## User Themes
+## Requirements
+### Rust
+To compile this project you will need to have the [Rust compiler](https://www.rust-lang.org/en-US/install.html) available on your computer. 
+
+### User Themes
 If [GNOME User Themes](https://extensions.gnome.org/extension/19/user-themes/) extension is not installed or enabled, this script will still be able to modify the shell theme, though better support is likely possible if user-themes is installed.
 
 ## Install
