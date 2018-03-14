@@ -79,7 +79,7 @@ fn main() {
 			}
 		}
 	} else {
-		eprintln!("Usage: pop-theme-toggle (light|dark|toggle)");
+		eprintln!("Usage: pop-theme-toggle (light|dark|toggle|slim|dark-slim|slim-dark|light-slim|slim-light)");
 		process::exit(1);
 	}
 
