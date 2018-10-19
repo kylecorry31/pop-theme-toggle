@@ -1,13 +1,7 @@
 # Modified from https://github.com/pop-os/system76-power
-
-prefix ?= /usr
-sysconfdir ?= /etc
+prefix ?= ~/.local
 exec_prefix = $(prefix)
 bindir = $(exec_prefix)/bin
-libdir = $(exec_prefix)/lib
-includedir = $(prefix)/include
-datarootdir = $(prefix)/share
-datadir = $(datarootdir)
 
 .PHONY: all clean distclean install uninstall update
 
@@ -22,7 +16,7 @@ distclean: clean
 	rm -rf .cargo vendor
 
 install: all
-	install -D -m 04755 "target/release/$(BIN)" "$(DESTDIR)$(bindir)/$(BIN)"
+	install -D -m 04755 "target/release/$(BIN)" $(DESTDIR)$(bindir)/$(BIN)
 
 uninstall:
 	rm -f "$(DESTDIR)$(bindir)/$(BIN)"
