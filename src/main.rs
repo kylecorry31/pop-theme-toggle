@@ -3,7 +3,6 @@ use std::io::Result;
 
 pub mod gnome_theme;
 pub mod pop_theme;
-mod dconf;
 mod gdbus;
 
 use pop_theme::*;
@@ -84,4 +83,3 @@ fn main() {
 	}
 
 }
-

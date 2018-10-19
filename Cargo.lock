@@ -1,4 +1,14 @@
 [[package]]
+name = "dconf_rs"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
 name = "pop-theme-toggle"
 version = "0.1.0"
+dependencies = [
+ "dconf_rs 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+]
 
+[metadata]
+"checksum dconf_rs 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "c83d00bdb84ae0dc98c793727235faa6271ae7a8ff77448531b8d3b8d2fac888"

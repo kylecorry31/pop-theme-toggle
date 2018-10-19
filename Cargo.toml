@@ -4,3 +4,4 @@ version = "0.1.0"
 authors = ["Kyle Corry <kylecorry31@gmail.com>"]
 
 [dependencies]
+dconf_rs = "0.1.0"
