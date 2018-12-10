@@ -15,7 +15,7 @@ Clone the GitHub repository and install using Make.
 $ git clone https://github.com/kylecorry31/pop-theme-toggle
 $ cd pop-theme-toggle
 $ make
-$ sudo make install
+$ make install
 ```
 
 ## Usage

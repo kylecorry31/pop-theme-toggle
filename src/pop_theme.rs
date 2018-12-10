@@ -5,6 +5,7 @@ static POP_LIGHT: &'static str = "Pop";
 static POP_DARK: &'static str = "Pop-dark";
 static POP_SLIM_LIGHT: &'static str = "Pop-slim";
 static POP_SLIM_DARK: &'static str = "Pop-dark-slim";
+static POP_SLIM_DARK_GTK: &'static str = "Pop-slim-dark";
 
 #[derive(PartialEq)]
 pub enum Theme {
@@ -29,7 +30,7 @@ pub fn set_theme(theme_type: Theme) -> Result<()> {
 			set_user_theme(POP_SLIM_LIGHT)?;
 		},
 		Theme::SlimDark => {
-			set_gtk_theme(POP_SLIM_DARK)?;
+			set_gtk_theme(POP_SLIM_DARK_GTK)?;
 			set_user_theme(POP_SLIM_DARK)?;
 		},
 	};
@@ -41,7 +42,7 @@ pub fn get_theme() -> Theme {
 
 	match theme {
 		Ok(a) => {
-			if a == POP_LIGHT { 
+			if a == POP_LIGHT {
 				Theme::Light
 			} else if a == POP_DARK {
 				Theme::Dark
